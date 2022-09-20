@@ -1,0 +1,121 @@
+[
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":1,
+        "fields":{
+            "watched" : true,
+            "title" : "The Croods: A New Age",
+            "rating" : 5,
+            "release_date" : "2020-11-25",
+            "review" : "The Croods: A New Age has a cheerful comedic charm. A near perfect family film of sheer, silly escapism. Feels like a genuine creative endeavour and not a last resort."
+        }
+    },
+
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":2,
+        "fields":{
+            "watched" : true,
+            "title" : "Crazy Rich Asian",
+            "rating" : 5,
+            "release_date" : "2020-11-25",
+            "review" : "romantic, has a deep meaning, relatable to todays life drama."
+        }
+    },
+
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":3,
+        "fields":{
+            "watched" : true,
+            "title" : "Cinderella",
+            "rating" : 5,
+            "release_date" : "2020-11-25",
+            "review" : "A classic Disney Princess movie, never fails to amuse me. Great costumes."
+        }
+    },
+
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":4,
+        "fields":{
+            "watched" : false,
+            "title" : "Little Women",
+            "rating" : 4,
+            "release_date" : "2020-11-25",
+            "review" : "Girl Boss!"
+        }
+    },
+
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":5,
+        "fields":{
+            "watched" : true,
+            "title" : "Top Gun: Maverick",
+            "rating" : 5,
+            "release_date" : "2020-11-25",
+            "review" : "Very awesome, even for people who haven't watch the old Top Gun movie. Full of handsome casts."
+        }
+    },
+
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":6,
+        "fields":{
+            "watched" : false,
+            "title" : "Onward",
+            "rating" : 3,
+            "release_date" : "2020-11-25",
+            "review" : "Good family movie!"
+        }
+    },
+
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":7,
+        "fields":{
+            "watched" : true,
+            "title" : "Shooting Star",
+            "rating" : 5,
+            "release_date" : "2020-11-25",
+            "review" : "Romantic and very funny. Good for stress relief."
+        }
+    },
+
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":8,
+        "fields":{
+            "watched" : false,
+            "title" : "She-Hulk: Attorney at Law",
+            "rating" : 4,
+            "release_date" : "2020-11-25",
+            "review" : "An awesome marvel series!"
+        }
+    },
+
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":9,
+        "fields":{
+            "watched" : true,
+            "title" : "Real Steel",
+            "rating" : 5,
+            "release_date" : "2020-11-25",
+            "review" : "Legendary movie, everyone must watch!"
+        }
+    },
+
+    {
+        "model":"mywatchlist.watchlist",
+        "pk":10,
+        "fields":{
+            "watched" : true,
+            "title" : "Free Guy",
+            "rating" : 5,
+            "release_date" : "2020-11-25",
+            "review" : "Cool, very funny with deep life lessons."
+        }
+    }
+]
