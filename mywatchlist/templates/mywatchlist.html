@@ -3,13 +3,18 @@
 {% block content %}
 <h1>Assignment 3 PBP</h1>
 
-<h5>Name: </h5>
-<p>{{name}}</p>
+<h5>Name: {{name}}</h5>
 
-<h5>Student ID: </h5>
-<p>{{npm}}</p>
+<h5>Student ID: {{npm}}</h5>
 
-<h2>My Watch List</h2>
+{% if has_watched_a_lot %}
+    <h3>Selamat, kamu sudah banyak menonton!</h3>
+{% else %}
+    <h3>Wah, kamu masih sedikit menonton!</h3>
+{% endif %}
+
+
+<h2>See My Watch List Here!</h2>
 <a href="html/"><button>HTML</button></a>
 <a href="xml/"><button>XML</button></a>
 <a href="json/"><button>JSON</button></a>
