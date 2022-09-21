@@ -1,0 +1,12 @@
+table {
+    background-color: beige;
+    border-spacing: 0;
+  }
+th {
+    border: 1px solid pink;
+    border-spacing: 0;
+}
+
+#judul_html {
+    color: blueviolet;
+}

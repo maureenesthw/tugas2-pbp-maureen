@@ -10,7 +10,20 @@ Heroku mywatchlist app link: https://tugas2-pbp-maureen.herokuapp.com/mywatchlis
 
 
 ## Cara saya mengimplementasikan checklist Tugas 3
-
+    1. Membuat suatu aplikasi baru bernama mywatchlist di proyek Django Tugas 2 pekan lalu
+        - 
+    2. Menambahkan path mywatchlist sehingga pengguna dapat mengakses http://localhost:8000/mywatchlist
+    3. Membuat sebuah model MyWatchList yang memiliki atribut watched, title, rating, release_date, dan review.
+    4. Menambahkan 10 data untuk objek MyWatchList yang sudah dibuat di atas
+    5. Mengimplementasikan sebuah fitur untuk menyajikan data yang telah dibuat sebelumnya dalam tiga format:
+        - HTML
+        - XML
+        - JSON
+    6. Membuat routing sehingga data di atas dapat diakses melalui URL:
+        - http://localhost:8000/mywatchlist/html untuk mengakses mywatchlist dalam format HTML
+        - http://localhost:8000/mywatchlist/xml untuk mengakses mywatchlist dalam format XML
+        - http://localhost:8000/mywatchlist/json untuk mengakses mywatchlist dalam format JSON
+    7. Melakukan deployment ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
 1. Membuat sebuah django-app bernama mywatchlist dengan perintah python manage.py startapp mywatchlist
 2. Menambahkan aplikasi mywatchlist, pada settings.py di folder project_django, ke dalam variabel INSTALLED_APPS untuk mendaftarkan django-app yang sudah dibuat ke dalam proyek Django.
 3. 

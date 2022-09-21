@@ -15,8 +15,8 @@
 
 
 <h2>See My Watch List Here!</h2>
-<a href="html/"><button>HTML</button></a>
-<a href="xml/"><button>XML</button></a>
-<a href="json/"><button>JSON</button></a>
+<a href="{% url 'mywatchlist:show_html' %}"><button>HTML</button></a>
+<a href="{% url 'mywatchlist:show_xml' %}"><button>XML</button></a>
+<a href="{% url 'mywatchlist:show_json' %}"><button>JSON</button></a>
 
 {% endblock content %}
