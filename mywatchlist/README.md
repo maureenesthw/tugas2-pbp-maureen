@@ -7,7 +7,7 @@ Heroku mywatchlist app link: https://tugas2-pbp-maureen.herokuapp.com/mywatchlis
    - HTML (HyperText Markup Language) adalah bahasa markup standar untuk dokumen yang dirancang untuk ditampilkan di browser web. HTML menggambarkan struktur halaman web dengan cara menandainya seperti tampilan dokumen.
 
 ## Mengapa _data delivery_ diperlukan dalam pengimplementasian sebuah platform?
-
+Saat mengembangkan platform, kita mungkin perlu mengirim data dari satu stack ke stack lainnya. Data yang dikirim bisa bermacam-macam bentuknya. Contoh format data yang umum digunakan adalah HTML, XML, dan JSON. Data delivery memudahkan untuk suatu platform melakukan pertukaran data.
 
 ## Cara mengimplementasikan checklist Tugas 3
 1. Membuat sebuah django-app bernama mywatchlist dengan perintah python manage.py startapp mywatchlist
