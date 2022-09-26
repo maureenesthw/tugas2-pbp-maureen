@@ -8,6 +8,7 @@
 <h5>Student ID: {{npm}}</h5>
 <br>
 
-
+<h5>Last login session: {{last_login}}</h5>
+<a href="{% url 'todolist:logout' %}"><button>Logout</button></a>
 
 {% endblock content %}
