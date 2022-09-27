@@ -8,6 +8,25 @@
 <h5>Student ID: {{npm}}</h5>
 <br>
 
+<a href="{% url 'todolist:create-task' %}"><button>Create new task</button></a>
+
+<h2>Hi {{user}}!</h2>
+<h2>Your To Do List</h2>
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Date Created</th>
+        <th>Description</th>
+    </tr>
+    {% for task in todolist %}
+        <tr>
+            <td>{{task.title}}</td>
+            <td>{{task.date}}</td>
+            <td>{{task.description}}</td>
+        </tr>
+    {% endfor %}
+</table>
+
 <h5>Last login session: {{last_login}}</h5>
 <a href="{% url 'todolist:logout' %}"><button>Logout</button></a>
 

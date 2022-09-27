@@ -7,17 +7,29 @@ from django.contrib.auth.decorators import login_required
 import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from todolist.models import Task
 
 # Create your views here.
 @login_required(login_url='/todolist/login/')
-
 def show_todolist(request):
+    todolist = Task.objects.filter(user=request.user)
     context = {
         'name' : 'Maureen Esther Wijaya',
         'npm' : '2106705335',
-        'last_login': request.COOKIES['last_login']
+        'last_login': request.COOKIES['last_login'],
+        'todolist' : todolist
     }
     return render(request, "todolist.html", context)
+
+@login_required(login_url='/todolist/login/')
+def create_task(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+        Task.objects.create(title=title, description=description, user=request.user)
+        response = HttpResponseRedirect(reverse("todolist:show_todolist")) 
+        return response
+    return render(request, "create_task.html")
 
 def register(request):
     form = UserCreationForm()
