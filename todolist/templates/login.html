@@ -8,7 +8,7 @@
 
 <div class = "login">
 
-    <h1>Login</h1>
+    <h1>To Do List Login</h1>
 
     <form method="POST" action="">
         {% csrf_token %}
@@ -31,11 +31,9 @@
     </form>
 
     {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
     {% endif %}     
         
     Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Create Account</a>

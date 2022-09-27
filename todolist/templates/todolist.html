@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block meta %}
+<title>To Do List</title>
+{% endblock meta %}
+
 {% block content %}
 <h1>Assignment 4 PBP</h1>
 
@@ -8,9 +12,9 @@
 <h5>Student ID: {{npm}}</h5>
 <br>
 
-<a href="{% url 'todolist:create-task' %}"><button>Create new task</button></a>
-
 <h2>Hi {{user}}!</h2>
+<a href="{% url 'todolist:create-task' %}"><button>Create new task</button></a>
+<br>
 <h2>Your To Do List</h2>
 <table>
     <tr>
