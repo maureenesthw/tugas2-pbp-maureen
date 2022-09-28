@@ -3,6 +3,7 @@ Heroku todolist app link: https://tugas2-pbp-maureen.herokuapp.com/todolist/
 
 ##  Apa kegunaan {% csrf_token %} pada elemen form? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen form?
 CSRF merupakan singkatan dari Cross Site Request Forgery. Django memiliki built-in protection untuk mengatasi CSRF attacks, yaitu dengan mengimplementasikan csrf_token. CSRF token adalah token panjang yang di-generate secara acak. Token ini bersifat unik per sesi pengguna. Token ini digunakan untuk memastikan bahwa yang melakukan request pada web adalah pengguna pada sesi itu.
+
 Jika tidak menggunakan csrf_token, berarti saat melakukan request, tidak akan ada token CSRF untuk diverifikasi. Jadi, CSRF attacks akan lebih mudah terjadi karena tidak harus menebak/menemukan token CSRF untuk melakukan request.
 
 ##  Apakah kita dapat membuat elemen form secara manual (tanpa menggunakan generator seperti {{ form.as_table }})? Jelaskan secara gambaran besar bagaimana cara membuat form secara manual.
@@ -19,15 +20,15 @@ Ya, kita dapat membuat elemen form secara manual tanpa generator {{ form.as_tabl
     - menambahkan 'todolist' pada INSTALLED_APPS pada settings.py di folder django_project
     - membuat funtion show_todolist pada file vies.py mywatchlist
     - pada file urls.py, mengimport path dan show_todolist, menuliskan app_name = 'todolist', dan menambahkan urlpatterns.
-    '''
+    ```
     urlpatterns = [
     path('', show_todolist, name='show_todolist'),
     ]
-    '''
+    ```
     - mendaftarkan aplikasi mywatchlist ke dalam urls.py pada folder project_django dengan menambahkan path pada urlpatterns.
-    '''
+    ```
     path('todolist/', include('todolist.urls')),
-    '''
+    ```
 3. Membuat sebuah model Task yang memiliki atribut user, date, title, dan description.
     - membuat model baru pada models.py bernama Task dengan field user, date, title, dan description,
     - melakukan perintah `python manage.py makemigrations`
@@ -59,7 +60,7 @@ Ya, kita dapat membuat elemen form secara manual tanpa generator {{ form.as_tabl
     - membuat fungsi create_task pada views.py
 7. Membuat routing sehingga beberapa fungsi dapat diakses melalui URL-nya.
     - pada file urls.py, menambahkan urlpatterns.
-    '''
+    ```
     urlpatterns = [
     path('', show_todolist, name='show_todolist'),
     path('login/', login_user, name='login'),
@@ -67,7 +68,7 @@ Ya, kita dapat membuat elemen form secara manual tanpa generator {{ form.as_tabl
     path('logout/', logout_user, name='logout'),
     path('create-task/', create_task, name='create-task'),
     ]
-    '''
+    ```
 8. Melakukan deployment ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
     - melakukan git ad, commit, dan push ke git repo. Lalu, perubahan pada website akan otomatis terupdate pada web app yang sudah pernah di create
 9. Membuat dua akun pengguna dan tiga dummy data menggunakan model Task pada akun masing-masing di situs web Heroku.
