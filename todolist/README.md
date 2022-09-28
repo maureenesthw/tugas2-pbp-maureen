@@ -14,13 +14,62 @@ Ya, kita dapat membuat elemen form secara manual tanpa generator {{ form.as_tabl
 - Untuk menampilkan data yang telah disimpan ke template HTML, perlu menambahkan context dengan isi Task.objects.filter(user=request.user). Filter user ini akan bekerja untuk hanya menampilkan Task yang dibuat oleh user yang sedang logged in.
 
 ##  Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas.
-1. Membuat suatu aplikasi baru bernama todolist di proyek tugas Django yang sudah digunakan sebelumnya.
-  - 
-3. Menambahkan path todolist sehingga pengguna dapat mengakses http://localhost:8000/todolist.
-4. Membuat sebuah model Task yang memiliki atribut user, date, title, dan description.
-5. Mengimplementasikan form registrasi, login, dan logout agar pengguna dapat menggunakan todolist dengan baik.
-6. Membuat halaman utama todolist yang memuat username pengguna, tombol Tambah Task Baru, tombol logout, serta tabel berisi tanggal pembuatan task, judul task, dan deskripsi task.
-7. Membuat halaman form untuk pembuatan task. Data yang perlu dimasukkan pengguna hanyalah judul task dan deskripsi task.
-8. Membuat routing sehingga beberapa fungsi dapat diakses melalui URL-nya.
-9. Melakukan deployment ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
-10. Membuat dua akun pengguna dan tiga dummy data menggunakan model Task pada akun masing-masing di situs web Heroku.
+1. Membuat suatu aplikasi baru bernama todolist dengan perintah python manage.py startapp todolist.
+2. Menambahkan path todolist sehingga pengguna dapat mengakses http://localhost:8000/todolist.
+    - menambahkan 'todolist' pada INSTALLED_APPS pada settings.py di folder django_project
+    - membuat funtion show_todolist pada file vies.py mywatchlist
+    - pada file urls.py, mengimport path dan show_todolist, menuliskan app_name = 'todolist', dan menambahkan urlpatterns.
+    '''
+    urlpatterns = [
+    path('', show_todolist, name='show_todolist'),
+    ]
+    '''
+    - mendaftarkan aplikasi mywatchlist ke dalam urls.py pada folder project_django dengan menambahkan path pada urlpatterns.
+    '''
+    path('todolist/', include('todolist.urls')),
+    '''
+3. Membuat sebuah model Task yang memiliki atribut user, date, title, dan description.
+    - membuat model baru pada models.py bernama Task dengan field user, date, title, dan description,
+    - melakukan perintah `python manage.py makemigrations`
+    - melakukan perintah `python manage.py migrate`
+4. Mengimplementasikan form registrasi, login, dan logout agar pengguna dapat menggunakan todolist dengan baik.
+    - membuat form registrasi
+      - import redirect, UserCreationForm, dan messages pada views.py
+      - membuat fungsi register pada views.py
+      - membuat register.html berisi form registrasi
+      - menambahkan path /todolist/register
+    - membuat form login
+      - import authenticate dan login pada views.py
+      - membuat fungsi login pada views.py
+      - memmbuat login.html berisi form login
+      - menambahkan path /todolist/login
+    - membuat fungsi logout
+      - import logoutpada views.py
+      - membuat fungsi logout pada views.py
+      - menambahkan button/anchor tag pada todolist.html dengan href="{% url 'todolist:logout' %}"
+      - menambahkan path /todolist/logout
+    - merestriksi akses halaman todolist dan create-task
+      - import login_required pada views.py
+      - menambahkan kode `@login_required(login_url='/wishlist/login/')` di atas fungsi show_todolist dan create_task
+5. Membuat halaman utama todolist yang memuat username pengguna, tombol Tambah Task Baru, tombol logout, serta tabel berisi tanggal pembuatan task, judul task, dan deskripsi task.
+    - membuat todolist.html
+    - menambahkan elemen-elemen
+6. Membuat halaman form untuk pembuatan task. Data yang perlu dimasukkan pengguna hanyalah judul task dan deskripsi task.
+    - membuat create_task.html berisikan form data task
+    - membuat fungsi create_task pada views.py
+7. Membuat routing sehingga beberapa fungsi dapat diakses melalui URL-nya.
+    - pada file urls.py, menambahkan urlpatterns.
+    '''
+    urlpatterns = [
+    path('', show_todolist, name='show_todolist'),
+    path('login/', login_user, name='login'),
+    path('register/', register, name='register'),
+    path('logout/', logout_user, name='logout'),
+    path('create-task/', create_task, name='create-task'),
+    ]
+    '''
+8. Melakukan deployment ke Heroku terhadap aplikasi yang sudah kamu buat sehingga nantinya dapat diakses oleh teman-temanmu melalui Internet.
+    - melakukan git ad, commit, dan push ke git repo. Lalu, perubahan pada website akan otomatis terupdate pada web app yang sudah pernah di create
+9. Membuat dua akun pengguna dan tiga dummy data menggunakan model Task pada akun masing-masing di situs web Heroku.
+    - create new account dengan register (2 kali)
+    - create new task 3 kali pada setiap akun
