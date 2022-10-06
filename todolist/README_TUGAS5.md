@@ -14,10 +14,10 @@ Berikut adalah kelebihan dan kekurangannya masing-masing:
   - Kekurangan: Memungkinkan page tidak dirender dengan benar hingga CSS eksternal dimuat. Mengupload atau me-link ke beberapa file CSS dapat meningkatkan waktu untuk me-load page.
 
 ## Jelaskan tag HTML5 yang kamu ketahui.
-<form></form> HTML Form digunakan untuk mengumpulkan input user. Input user biasanya akan dikirim ke server untuk diproses.
-<button></button> merupakan sebuah clickable button.
-<h1></h1> <h2></h2> <h3></h3>... HTML Headings adalah judul atau subjudul yang ingin ditampilkan pada website.
-<p></p> HTML Paragraph selalu dimulai pada baris baru, dan biasanya berisi teks.
+`<form></form>` HTML Form digunakan untuk mengumpulkan input user. Input user biasanya akan dikirim ke server untuk diproses.
+`<button></button>` merupakan sebuah clickable button.
+`<h1></h1> <h2></h2> <h3></h3>...` HTML Headings adalah judul atau subjudul yang ingin ditampilkan pada website.
+`<p></p>` HTML Paragraph selalu dimulai pada baris baru, dan biasanya berisi teks.
 
 ## Jelaskan tipe-tipe CSS selector yang kamu ketahui.
 Element selector berlaku untuk semua elemen HTML tersebut. Misalkan elemen p,
