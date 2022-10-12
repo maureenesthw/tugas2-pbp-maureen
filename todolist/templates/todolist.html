@@ -57,6 +57,51 @@
     }
 </style>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(document).ready(function() {
+
+        $.get("/todolist/json", function(data) {
+
+            for (i=0;i<data.length;i++){
+                $(".card-container").append(
+                `<div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">${data[i].fields.title}</h5>
+                        <p class="card-text">${data[i].fields.date}</p>
+                        <p class="card-text">${data[i].fields.description}</p>
+                    </div>
+                </div>`
+                )
+            }
+        })
+
+        $("#add-task-btn").click(function(){
+            $.post("/todolist/add/", 
+                {
+                    title: $("#task-title").val(),
+                    description:$("#task-desc").val(),
+                
+                }, function(result, status) {
+                        $(".card-container").append(
+                            `<div class="card" style="width: 18rem;">
+                                <div class="card-body">
+                                    <h5 class="card-title">${result.fields.title}</h5>
+                                    <p class="card-text">${result.fields.date}</p>
+                                    <p class="card-text">${result.fields.description}</p>
+                                </div>
+                            </div>`
+                        )
+                        $("#task-title").val('')
+                        $("#task-desc").val('')
+                    }
+                )
+
+
+        })
+    })
+</script>
+
 <h1>Assignment 4 PBP</h1>
 
 <h5>Name: {{name}}</h5>
@@ -67,10 +112,39 @@
 <h2>Hi {{user}}!</h2>
 <a href="{% url 'todolist:create-task' %}"><button>Create new task</button></a>
 <br>
+
+<button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#add-modal" data-bs-whatever="@mdo">Add Task</button>
+<div class="modal fade" id="add-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Add a new task</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="task-form" method="POST" action="/todolist/add/">
+            {% csrf_token %}
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Title:</label>
+              <input type="text" class="form-control" id="task-title" name="title">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Description:</label>
+              <input type="text" class="form-control" name="description" id="task-desc">
+            </div>
+          </form>
+        </div> 
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-secondary" id="add-task-btn" data-bs-dismiss="modal">Create</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <h2>Your To Do List</h2>
 
 <div class="card-container">
-{% for task in todolist %}
+<!-- {% for task in todolist %}
 <div class="card" style="width: 18rem;">
     <div class="card-body">
         <h5 class="card-title">{{task.title}}</h5>
@@ -78,7 +152,7 @@
         <p class="card-text">{{task.description}}</p>
     </div>
 </div>
-{% endfor %}
+{% endfor %} -->
 </div>
 
 
